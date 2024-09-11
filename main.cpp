@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
     qDebug()<<"Start app";
 
-    QFile r_file("D:/manual_ignore.txt");
+    QFile r_file("manual_ignore.txt");
 
     if (!r_file.open(QIODevice::ReadOnly))
     {
@@ -85,6 +85,8 @@ int main(int argc, char *argv[])
     }
 
     w_file.close();
+
+    QCoreApplication::quit();
 
     return a.exec();
 }
