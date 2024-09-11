@@ -17,6 +17,7 @@ void addListPath(const QDir &curr_dir, QStringList &list_all_files, QDirIterator
     }
 
 }
+
 int init()
 {
     qDebug()<<"Start app";
