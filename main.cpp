@@ -58,13 +58,10 @@ int main(int argc, char *argv[])
         QString file_name = QStringList(s.split("/")).last();
         QString file_exp = file_name.right(file_name.length() - file_name.indexOf('.'));
 
-        qDebug()<<file_name<<file_exp;
-
         if (map_exp.value(file_exp))
         {
             int ind_of =  list_all_files.indexOf(s);
             list_all_files.replace(ind_of, "");
-            qDebug()<<"match "<<file_exp;
         }
     }
 
@@ -88,7 +85,7 @@ int main(int argc, char *argv[])
 
     QCoreApplication::quit();
 
-    return a.exec();
+   // return a.exec();
 }
 
 
