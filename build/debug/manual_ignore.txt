@@ -1,6 +1,5 @@
 D:\git\make_gitignore\.gitignore
 D:\git\make_gitignore\
-.exe
 .txt
 .cpp
 .h

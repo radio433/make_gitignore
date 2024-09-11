@@ -1,5 +1,6 @@
 .qmake.stash
 build/debug/.obj/main.o
+build/debug/fill_gitignore.exe
 Makefile
 Makefile.Debug
 Makefile.Release
