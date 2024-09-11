@@ -1,0 +1,7 @@
+D:\git\fill_gitignore\.gitignore
+D:\git\fill_gitignore\
+.txt
+.cpp
+.h
+.pro
+.gitignore

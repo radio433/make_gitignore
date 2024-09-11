@@ -1,0 +1,8 @@
+.qmake.stash
+build/debug/.obj/main.o
+build/debug/fill_gitignore.exe
+fill_gitignore.pro.user
+Makefile
+Makefile.Debug
+Makefile.Release
+README.md
