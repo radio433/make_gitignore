@@ -1,7 +1,6 @@
-D:/git/make_gitignore/.qmake.stash
-D:/git/make_gitignore/build/debug/.obj/main.o
-D:/git/make_gitignore/Makefile
-D:/git/make_gitignore/Makefile.Debug
-D:/git/make_gitignore/Makefile.Release
-D:/git/make_gitignore/README.md
-1.txt
+.qmake.stash
+build/debug/.obj/main.o
+Makefile
+Makefile.Debug
+Makefile.Release
+README.md

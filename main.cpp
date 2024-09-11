@@ -5,15 +5,15 @@
 #include <QDir>
 #include <QDirIterator>
 
-void addListPath(const QString &curr_dir, QStringList &list_all_files, QDirIterator::IteratorFlag it_flag)
+void addListPath(const QDir &curr_dir, QStringList &list_all_files, QDirIterator::IteratorFlag it_flag)
 {
 
-    QDirIterator it_sub(curr_dir, QDir::Files, it_flag);
+    QDirIterator it(curr_dir.path(), QDir::Files, it_flag);
 
-    while (it_sub.hasNext())
+    while (it.hasNext())
     {
-        QString s = it_sub.next();
-        list_all_files.append(s);
+        QString s_rel = curr_dir.relativeFilePath(it.next());
+        list_all_files.append(s_rel);
     }
 
 }
@@ -48,7 +48,7 @@ int init()
 
     QStringList list_all_files;
 
-    addListPath(curr_dir.path(), list_all_files, QDirIterator::Subdirectories);
+    addListPath(curr_dir, list_all_files, QDirIterator::Subdirectories);
 
     for (const QString &s : list_all_files)
     {
