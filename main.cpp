@@ -5,6 +5,8 @@
 #include <QDir>
 #include <QDirIterator>
 
+const QString NameManualFile = "manual_ignore.txt";
+
 void addListPath(const QDir &curr_dir, QStringList &list_all_files, QDirIterator::IteratorFlag it_flag)
 {
 
@@ -22,7 +24,7 @@ int init()
 {
     qDebug()<<"Start app";
 
-    QFile r_file("manual_ignore.txt");
+    QFile r_file(NameManualFile);
 
     if (!r_file.open(QIODevice::ReadOnly))
     {
@@ -33,8 +35,8 @@ int init()
     QMap<QString, bool> map_exp;
     QTextStream input_stream(&r_file);
 
-    QString path_gitignore = input_stream.readLine();
-    QString path_dir = input_stream.readLine();
+    const QString path_gitignore = input_stream.readLine();
+    const QString path_dir = input_stream.readLine();
 
     QDir curr_dir(path_dir);
 
@@ -54,7 +56,7 @@ int init()
     for (const QString &s : list_all_files)
     {
 
-        QString file_name = QStringList(s.split("/")).last();
+        QString file_name = QStringList(s.split(QDir::separator())).last();
         QString file_exp = file_name.right(file_name.length() - file_name.indexOf('.'));
 
         if (map_exp.value(file_exp))
