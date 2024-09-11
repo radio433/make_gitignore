@@ -17,18 +17,16 @@ void addListPath(const QString &curr_dir, QStringList &list_all_files, QDirItera
     }
 
 }
-int main(int argc, char *argv[])
+int init()
 {
-    QCoreApplication a(argc, argv);
-
     qDebug()<<"Start app";
 
     QFile r_file("manual_ignore.txt");
 
     if (!r_file.open(QIODevice::ReadOnly))
     {
-        qDebug()<<"ignore file not open";
-        QCoreApplication::exit();
+        qDebug()<<"manual_ignore.txt file not open";
+        return 1;
     }
 
     QMap<QString, bool> map_exp;
@@ -70,7 +68,7 @@ int main(int argc, char *argv[])
     if (!w_file.open(QIODevice::WriteOnly))
     {
         qDebug()<<"gitignore file not open";
-        QCoreApplication::exit();
+        return 1;
     }
 
     QTextStream output_stream(&w_file);
@@ -83,10 +81,20 @@ int main(int argc, char *argv[])
 
     w_file.close();
 
-    QCoreApplication::quit();
-
-   // return a.exec();
+    return 0; //Все ОК
 }
+
+
+int main(int argc, char *argv[])
+{
+    QCoreApplication a(argc, argv);
+
+   if (init() >0) //Если ошибка то остаемся
+        a.exec();
+   else           //Если все ОК то выходим
+       return 0;
+}
+
 
 
 
